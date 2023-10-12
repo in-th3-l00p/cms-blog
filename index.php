@@ -1,24 +1,31 @@
 <?php session_start(); ?>
+<?php 
+    require("utils/database.php");
+    $page = isset($_GET["page"]) ? $_GET["page"] : 0;
+    const PAGE_SIZE = 10;
+
+    try {
+        $query = $conn->database->query(
+            "SELECT * FROM posts LIMIT " . $page * PAGE_SIZE . ", " . PAGE_SIZE
+        );
+        $posts = $query->fetch_all(); 
+    } catch (Exception $e) {
+        die("failed to load posts from db");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMS blog system</title>
+
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-    <header>
-        <h1>Blog</h1>
-
-        <span id="auth-links">
-            <?php
-                // implement ssr for showing login/register links or account information  
-
-                echo "<a href=\"/login.php\">Login</a>";
-                echo "<a href=\"/register.php\">Register</a>";
-            ?>
-        </span>
-    </header>
+    <?php require("utils/layout/header.php") ?>
 
     <!--Presentation section-->
     <section id="presentation">
@@ -29,18 +36,15 @@
     <section id="posts">
         <ul>
             <?php 
-                // show posts 
+                foreach ($posts as $post) {
+                    echo "<li><a href=\"/post.php?postId=" . $post[0] . "\">" . 
+                            $post[2] . 
+                        "</a></li>";
+                }
             ?>
         </ul>
     </section>
 
-    <footer>
-        <p>All rights reserved</p>
-        <ul id="links-list">
-            <li><a href="https://intheloop.bio">website</a></li>
-            <li><a href="https://github.com/in-th3-l00p">github</a></li>
-            <li><a href="">linkedin</a></li>
-        </ul>
-    </footer>
+    <?php require("utils/layout/footer.php") ?>
 </body>
 </html>
