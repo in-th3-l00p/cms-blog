@@ -7,7 +7,7 @@
         require("utils/database.php");
         try {
             $passwordQuery = $conn->database->query(
-                "SELECT password, admin FROM users WHERE username=\"" . $username . "\""
+                "SELECT id, password, admin FROM users WHERE username=\"" . $username . "\""
             );
 
             if ($passwordQuery->num_rows === 0)
@@ -17,6 +17,7 @@
             if (!password_verify($password, $assoc["password"]))
                 throw new Exception();
             
+            $_SESSION["id"] = $assoc["id"];
             $_SESSION["username"] = $username;
             $_SESSION["admin"] = $assoc["admin"];
             header("Location: /");
@@ -52,7 +53,7 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
             </div>
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" class="btn">Login</button>
         </form>
     </section>
 

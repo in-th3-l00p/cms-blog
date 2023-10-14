@@ -11,58 +11,66 @@ INSERT INTO users (username, password, admin) VALUES (
     0
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum1",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum2",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum3",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum4",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum5",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum6",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );
 
-INSERT INTO posts (user_id, title, description, content) VALUES (
+INSERT INTO posts (user_id, title, description, content, visibility) VALUES (
     1,
     "lorem ipsum7",
     "lorem ipsum igitus fdsanfdsaj",
-    "fkdsanfljdsanflkjdsafnlkj"
+    "fkdsanfljdsanflkjdsafnlkj",
+    "public"
 );

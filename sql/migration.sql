@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS posts (
     title VARCHAR(255) NOT NULL UNIQUE,
     description VARCHAR(500) NOT NULL,
     content TEXT NOT NULL,
+    visibility ENUM ("public", "private") DEFAULT "private",
     created_at DATETIME NOT NULL DEFAULT NOW(),
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
