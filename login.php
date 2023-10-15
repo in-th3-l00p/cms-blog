@@ -1,10 +1,12 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    require("utils/database.php");
+?>
 <?php 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $username = $_POST["username"]; 
-        $password = $_POST["password"]; 
+        $username = sanitizeInput($_POST["username"]); 
+        $password = sanitizeInput($_POST["password"]); 
 
-        require("utils/database.php");
         try {
             $passwordQuery = $conn->database->query(
                 "SELECT id, password, admin FROM users WHERE username=\"" . $username . "\""

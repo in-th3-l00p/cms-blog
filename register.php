@@ -1,11 +1,13 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    require("utils/database.php");
+?>
 <?php
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $username = trim($_POST["username"]);
-        $password = trim($_POST["password"]);
-        require("utils/database.php");
+        $username = sanitizeInput(trim($_POST["username"]));
+        $password = sanitizeInput(trim($_POST["password"]));
         try {
-            if ($password !== trim($_POST["cpassword"]))    
+            if ($password !== sanitizeInput($_POST["cpassword"]))    
                 throw new Exception("Passwords do not match");
             if (strlen($password) < 8)
                 throw new Exception("Password should have at least 8 characters");

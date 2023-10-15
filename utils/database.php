@@ -13,5 +13,9 @@
         }
     }
 
+    function sanitizeInput(string $input) {
+        return htmlspecialchars(stripslashes(trim($input)));
+    }
+
     $conn = new Database();
 ?>

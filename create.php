@@ -1,10 +1,16 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    require("utils/database.php");
+    if (!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
+        header("Location: /");
+        die();
+    }
+?>
 <?php 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $title = $_POST["title"];
-        $description = $_POST["description"];
+        $title = sanitizeInput($_POST["title"]);
+        $description = sanitizeInput($_POST["description"]);
 
-        require("utils/database.php");
         try {
             $count = $conn->database->query(
                 "SELECT COUNT(*) as count FROM posts WHERE title=\"" . $title . "\""
@@ -19,7 +25,7 @@
             $id = $conn->database->query(
                 "SELECT id FROM posts WHERE title=\"" . $title . "\""
             )->fetch_row()[0];
-            header("Location: /edit?postId" . $id);
+            header("Location: /edit.php?postId=" . $id);
             die();
         } catch (Exception $e) {
             $error = $e->getMessage();

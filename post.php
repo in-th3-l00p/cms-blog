@@ -1,7 +1,9 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    require("utils/database.php");
+?>
 <?php 
     try {
-        require("utils/database.php");
         $post = $conn->database->query(
             "SELECT * FROM posts WHERE id=" . $_GET["postId"]
         )->fetch_assoc();
@@ -30,6 +32,7 @@
         <title>CMS Blog System</title>
 
         <link rel="stylesheet" href="/css/globals.css">
+        <link rel="stylesheet" href="/css/post.css">
         <script src="/js/markdown.js"></script>
     </head>
 

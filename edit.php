@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    require("utils/database.php");
+    if (!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
+        header("Location: /");
+        die();
+    }
+?>
 <?php 
     if (!isset($_SESSION["admin"]) || !$_SESSION["admin"]) {
         header("Location: /");
@@ -6,13 +13,12 @@
     }
 
     try {
-        require("utils/database.php");
         $post = $conn->database->query(
-            "SELECT * FROM posts WHERE id=" . $_GET["postId"]
+            "SELECT * FROM posts WHERE id=" . sanitizeInput($_GET["postId"])
         )->fetch_assoc();
 
         $user = $conn->database->query(
-            "SELECT * FROM users WHERE id=" . $post["user_id"]
+            "SELECT * FROM users WHERE id=" . sanitizeInput($post["user_id"])
         )->fetch_assoc();
     } catch (Exception $exception) {
         header("Location: /");
@@ -24,14 +30,16 @@
         try {
             if (isset($_POST["content"])) {
                 if (!$conn->database->query(
-                    "UPDATE posts SET content=\"" . $_POST["content"] . "\" " .
+                    "UPDATE posts SET content=\"" . sanitizeInput($_POST["content"]) . "\" " .
                     "WHERE id=\"" . $post["id"] . "\""
                 ))
                     throw new Exception("failed to update");
             } else {
                 if (!$conn->database->query(
                     "UPDATE posts SET " . 
-                    "title=\"" . $_POST["title"] . "\", description=\"" . $_POST["description"] . "\" " .
+                    "title=\"" . sanitizeInput($_POST["title"]) . 
+                    "\", description=\"" . sanitizeInput($_POST["description"]) . "\", " .
+                    "visibility=\"" . sanitizeInput($_POST["visibility"]) . "\" " .
                     "WHERE id=" . $post["id"]
                 ))
                     throw new Exception("failed to update");
@@ -70,7 +78,22 @@
             <label for="description">Description</label>
             <textarea name="description" id="description"><?php echo $post["description"]?></textarea>
         </div>
+        <div class="form-group">
+            <label for="visibility">Visiblity</label>
+            <select name="visibility" id="visiblity">
+                <?php if ($post["visibility"] === "public"): ?>
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                <?php else: ?>
+                    <option value="private">Private</option>
+                    <option value="public">Public</option>
+                <?php endif ?>
+            </select>
+        </div>
         <button type="submit" class="btn">Update</button>
+        <a href="/post.php?postId=<?php echo $post["id"]; ?>">
+            <button type="button" class="btn">Preview</button>
+        </a>
     </form>
 
     <form method="POST">

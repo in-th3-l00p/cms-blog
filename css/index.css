@@ -1,0 +1,145 @@
+/* the presentation hero section */
+#presentation {
+    background-color: #004F2D;
+    background: linear-gradient(60deg, #005e35, #003820);
+    color: white;
+
+    padding-block: 120px;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+@media (width <= 600px) {
+    #presentation {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+#presentation #icon {
+    filter: invert(100%);
+    aspect-ratio: 1/1;
+    height: 200px;
+    margin-block: auto;
+    margin-inline: auto;
+    -webkit-user-drag: none;
+}
+
+#presentation #text {
+    text-align: center;
+    display: block;
+    margin-block: auto;
+    margin-inline: 20px;
+}
+
+#presentation #text h2 { font-size: 2rem; }
+#presentation #text h3 { 
+    font-size: 1.25rem; 
+    font-style: italic;
+}
+
+/* the posts list */
+#posts {
+    padding-block: 30px;
+    padding-inline: 20px;
+}
+
+.posts-list {
+    margin-block: 20px;
+    padding-inline: 30px;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+} 
+
+.posts-list-title {
+    font-size: 2.25rem;
+    margin-left: 30px;
+}
+
+.post {
+    padding: 30px;
+    border: 1px solid #91AEC1;
+    border-radius: 15px;
+    box-shadow: 1.5px 1.5px 5px 1px #BFD7EA;
+    width: 100%;
+    max-width: 630px;
+}
+
+.post h2 {
+    font-size: 2rem;
+    word-wrap: break-word;
+}
+
+.post a {
+    color: black;
+    text-decoration: none;
+}
+
+.post .date {
+    font-weight: lighter;
+}
+
+.post .date span {
+    font-style: italic;
+}
+
+.page-buttons {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 15px;
+}
+
+.page-buttons li {
+    padding: 0;
+}
+
+.page-buttons .page-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    background-color: #cadeee;
+    border: 3px solid #8bb9cc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.page-buttons .page-btn:disabled {
+    font-size: 1rem;
+    filter: brightness(80%);
+    background-color: #cadeee;
+    border: 3px solid #8bb9cc;
+    cursor: default;
+}
+
+#private-posts-container {
+    display: none;
+}
+
+#private-posts-list-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#private-posts-toggler {
+    aspect-ratio: 1/1;
+    border: none;
+    background-color: transparent;
+    margin-inline: 60px;
+    transform: translateX(180deg);
+}
+
+#private-posts-toggler:hover {
+    cursor: pointer;
+}
+
+#private-posts-toggler img {
+    height: 50px;
+}
