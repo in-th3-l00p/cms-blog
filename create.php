@@ -58,7 +58,7 @@
                     <input type="text" name="title" id="title" class="input">
                 </div>
                 <div class="textarea-form-group">
-                    <label for="description">Description</label>
+                    <label for="description">Description:</label>
                     <textarea name="description" id="description" class="input"></textarea>
                 </div>
                 <button type="submit" class="btn mx-auto">Create</button>
