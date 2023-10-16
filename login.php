@@ -37,28 +37,32 @@
     <title>CMS blog system</title>
 
     <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
     <?php require("utils/layout/header.php") ?>
 
-    <section id="form-container">
-        <form method="POST">
-            <?php
-                if (isset($error)) 
-                    echo "<p class=\"error\">" . $error . "</p>";
-            ?>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <button type="submit" class="btn">Login</button>
-        </form>
-    </section>
+    <div class="absolute">
+        <section id="form-container">
+            <h1 class="title">Login</h1>
+            <form method="POST">
+                <?php
+                    if (isset($error)) 
+                        echo "<p class=\"error\">" . $error . "</p>";
+                ?>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="input">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="input">
+                </div>
+                <button type="submit" class="btn mx-auto">Login</button>
+            </form>
+        </section>
 
-    <?php require("utils/layout/footer.php") ?>
+        <?php require("utils/layout/footer.php") ?>
+    </div>
 </body>
 </html>

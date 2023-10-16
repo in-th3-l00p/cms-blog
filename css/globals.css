@@ -70,3 +70,36 @@ footer #links-list {
 footer #links-list li {
     padding: 0;
 }
+
+/* default properties */
+.mx-auto {
+    margin-inline: auto;
+}
+
+.square {
+    aspect-ratio: 1/1;
+}
+
+/* component styling */
+.btn {
+    padding: 20px;
+    background-color: #cadeee;
+    border: 3px solid #8bb9cc;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.btn:disabled {
+    filter: brightness(80%);
+    background-color: #cadeee;
+    border: 3px solid #8bb9cc;
+    cursor: default;
+}
+
+.input {
+    display: block;
+    font-size: 1.25rem;
+    padding: 10px;
+    border-radius: 10px;
+}

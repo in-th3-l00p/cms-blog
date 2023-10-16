@@ -100,21 +100,10 @@
 }
 
 .page-buttons .page-btn {
+    padding: 0;
     width: 40px;
     height: 40px;
-    font-size: 1.25rem;
-    background-color: #cadeee;
-    border: 3px solid #8bb9cc;
-    border-radius: 10px;
     cursor: pointer;
-}
-
-.page-buttons .page-btn:disabled {
-    font-size: 1rem;
-    filter: brightness(80%);
-    background-color: #cadeee;
-    border: 3px solid #8bb9cc;
-    cursor: default;
 }
 
 #private-posts-container {
@@ -142,4 +131,10 @@
 
 #private-posts-toggler img {
     height: 50px;
+}
+
+.nothing {
+    text-align: center;
+    font-size: 2rem;
+    margin-block: 20px;
 }

@@ -92,7 +92,7 @@
                                 <a href="/?privatePage=<?php echo $p; ?>">
                                 <button 
                                     <?php if ((int)$page === $p) echo "disabled"; ?> 
-                                    class="page-btn"
+                                    class="btn page-btn"
                                 >
                                     <?php echo $p; ?>
                                 </button>
@@ -123,7 +123,7 @@
                     <li><a href="/?page=<?php echo $p; ?>">
                         <button 
                             <?php if ((int)$page === $p) echo "disabled"; ?> 
-                            class="page-btn"
+                            class="btn page-btn"
                         >
                             <?php echo $p; ?>
                         </button>

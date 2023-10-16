@@ -41,26 +41,31 @@
     <title>CMS blog system</title>
 
     <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
     <?php require("utils/layout/header.php") ?>
 
-    <form method="POST">
-        <?php
-            if (isset($error)) 
-                echo "<p class=\"error\">" . $error . "</p>";
-        ?>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description" id="description"></textarea>
-        </div>
-        <button type="submit" class="btn">Create</button>
-    </form>
+    <div class="absolute">
+        <section id="form-container">
+            <form method="POST">
+                <?php
+                    if (isset($error)) 
+                        echo "<p class=\"error\">" . $error . "</p>";
+                ?>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="input">
+                </div>
+                <div class="textarea-form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="input"></textarea>
+                </div>
+                <button type="submit" class="btn mx-auto">Create</button>
+            </form>
 
-    <?php require("utils/layout/footer.php") ?>
+        </section>
+        <?php require("utils/layout/footer.php") ?>
+    </div>
 </body>
 </html>

@@ -39,32 +39,36 @@
     <title>CMS blog system</title>
 
     <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
     <?php require("utils/layout/header.php") ?>
 
-    <section id="form-container">
-        <form method="POST">
-            <?php
-                if (isset($error)) 
-                    echo "<p class=\"error\">" . $error . "</p>";
-            ?>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div class="form-group">
-                <label for="cpassword">Confirm password</label>
-                <input type="password" name="cpassword" id="cpassword">
-            </div>
-            <button type="submit" class="btn">Register</button>
-        </form>
-    </section>
+    <div class="absolute">
+        <section id="form-container">
+            <h1 class="title">Register</h1>
+            <form method="POST">
+                <?php
+                    if (isset($error)) 
+                        echo "<p class=\"error\">" . $error . "</p>";
+                ?>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="input">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="input">
+                </div>
+                <div class="form-group">
+                    <label for="cpassword">Confirm password</label>
+                    <input type="password" name="cpassword" id="cpassword" class="input">
+                </div>
+                <button type="submit" class="btn mx-auto">Register</button>
+            </form>
+        </section>
 
-    <?php require("utils/layout/footer.php") ?>
+        <?php require("utils/layout/footer.php") ?>
+    </div>
 </body>
 </html>

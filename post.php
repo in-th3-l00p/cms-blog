@@ -40,16 +40,27 @@
         <?php require("utils/layout/header.php") ?>
 
         <section id="details">
-            <h2 id="title"><?php echo $post["title"] ?></h2>
-            <p id="description"><?php echo $post["description"] ?></p>
+            <span id="main">
+                <h1 id="title"><?php echo $post["title"] ?></h1>
+                <p id="description"><?php echo $post["description"] ?></p>
+            </span>
             <span id="less-important">
                 <p id="created-by">Created by: <?php echo $user["username"] ?></p>
                 <p id="created-at"><?php echo $post["created_at"] ?></p>
             </span>
-            <?php if (isset($_SESSION["admin"]) && $_SESSION["admin"]): ?>
-                <a href="/edit.php?postId=<?php echo $post["id"] ?>">Edit</a>
-            <?php endif ?>
         </section>
+
+        <?php if (isset($_SESSION["admin"]) && $_SESSION["admin"]): ?>
+            <section id="admin">
+                <a 
+                    href="/edit.php?postId=<?php echo $post["id"] ?>"
+                    class="btn square"
+                    title="Edit"
+                >
+                    <img src="/assets/edit.svg" alt="edit">
+                </a>
+            </section>
+        <?php endif ?>
 
         <section id="content"></section>
 

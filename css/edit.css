@@ -1,0 +1,13 @@
+form {
+    margin-block: 45px;
+    margin-inline: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#content-form .textarea-form-group textarea {
+    height: 60vh;
+    resize: horizontal !important;
+}

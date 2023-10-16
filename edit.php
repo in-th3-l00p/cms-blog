@@ -61,7 +61,9 @@
     <title>CMS blog system</title>
 
     <link rel="stylesheet" href="/css/globals.css">
-</head>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/edit.css">
+</headu>
 <body>
     <?php require("utils/layout/header.php") ?>
 
@@ -69,18 +71,29 @@
         if (isset($error)) 
             echo "<p class=\"error\">" . $error . "</p>";
     ?>
-    <form method="POST">
+
+    <form method="POST" id="details-form">
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" value="<?php echo $post["title"]?>">
+            <input 
+                type="text" 
+                name="title" 
+                id="title" 
+                value="<?php echo $post["title"]?>"
+                class="input"
+            >
         </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description" id="description"><?php echo $post["description"]?></textarea>
+        <div class="textarea-form-group">
+            <label for="description">Description:</label>
+            <textarea 
+                name="description" 
+                id="description"
+                class="input"
+            ><?php echo $post["description"]?></textarea>
         </div>
         <div class="form-group">
             <label for="visibility">Visiblity</label>
-            <select name="visibility" id="visiblity">
+            <select name="visibility" id="visiblity" class="input">
                 <?php if ($post["visibility"] === "public"): ?>
                     <option value="public">Public</option>
                     <option value="private">Private</option>
@@ -90,15 +103,24 @@
                 <?php endif ?>
             </select>
         </div>
-        <button type="submit" class="btn">Update</button>
-        <a href="/post.php?postId=<?php echo $post["id"]; ?>">
-            <button type="button" class="btn">Preview</button>
-        </a>
+        <div class="btn-group">
+            <button type="submit" class="btn">Update</button>
+            <a href="/post.php?postId=<?php echo $post["id"]; ?>">
+                <button type="button" class="btn">Preview</button>
+            </a>
+        </div>
     </form>
 
-    <form method="POST">
-        <textarea name="content" id="content"><?php echo $post["content"] ?></textarea>
-        <button type="submit">Update content</button>
+    <form method="POST" id="content-form">
+        <div class="textarea-form-group">
+            <label for="content">Content (in markdown):</label>
+            <textarea 
+                name="content" 
+                id="content"
+                class="input"
+            ><?php echo $post["content"] ?></textarea>
+        </div>
+        <button type="submit" class="btn mx-auto">Update content</button>
     </form>
 
     <?php require("utils/layout/footer.php") ?>
